@@ -1,4 +1,4 @@
-package Student;
+package castello;
 import java.util.*;
 
 class Student implements Comparable{
@@ -25,7 +25,7 @@ class Student implements Comparable{
 	public int compareTo(Object o) {
 		if (o instanceof Student) {
 			Student tmp = (Student)o;
-			return tmp.total - this.total;
+			return tmp.total - this.total; 
 		} else { 
 			return -1;
 		}
@@ -37,7 +37,7 @@ class BanNoAscending implements Comparator{
 		Student s2 = (Student) o2;
 		int result = s1.ban - s2.ban;
 		
-		if(result==0) { return s1.no - s2.no;} 
+		if(result==0) { return s1.no - s2.no;} //반이 같으면, 번호를 비교한다
 			return result;
 		}
 }
@@ -48,7 +48,7 @@ class ClassTotalComparator implements Comparator{
 		Student s2 = (Student)o2;
 		int result = s1.ban - s2.ban;
 		if(result==0)
-			result = s2.total - s1.total;
+			result = s2.total - s1.total; // 반이 같으면 총 점수를 비교한다
 		return result;
 	}
 }
@@ -56,7 +56,7 @@ class ClassTotalComparator implements Comparator{
 public class StudentClass {
 	
 	public static void calculateClassRank(List list) {
-		Collections.sort(list, new ClassTotalComparator());
+		Collections.sort(list, new ClassTotalComparator()); //반별 총점기준 내림차순 정리
 		int prevBan = -1;
 		int prevRank = -1;
 		int prevTotal = -1;
@@ -81,7 +81,7 @@ public class StudentClass {
 	}
 	
 	public static void calculateSchoolRank(List list) {
-		Collections.sort(list, new BanNoAscending());
+		Collections.sort(list, new BanNoAscending()); //list에 저장된 요소 출력 (출력대상, 기준)
 
 		int prevRank = -1;
 		int prevTotal = -1;
