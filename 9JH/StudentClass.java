@@ -31,6 +31,9 @@ class Student implements Comparable{
 		}
 	}
 }
+
+//매개변수로 주어진 객체를 인스턴스 자신과 비교해서 자신이 작으면 음수를, 같으면 0을, 크면 양수를 반환하도록 구현
+
 class BanNoAscending implements Comparator{
 	public int compare(Object o1, Object o2) {
 		Student s1 = (Student) o1;
@@ -69,8 +72,8 @@ public class StudentClass {
 				prevTotal = -1;
 				n=0;
 			}
-			if(s.total==prevTotal) {
-				s.classRank = prevRank;
+			if(s.total==prevTotal) { //총점이 이전 총점과 같으면
+				s.classRank = prevRank; //등수를 이전 등수와 같은값으로 한다
 			} else {
 				s.classRank = n+1;
 			}
